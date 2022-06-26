@@ -16,6 +16,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+// Waarde checken van de array? Ik moet een for loop gebruiken die door de waardes van de grades array heen loopt en ze 1 voor 1 chckts
+// Door grades.length te gebruiken loopt de for loop net zo lang als de array
+// if statement per loop laten loggen dat er 1 voldoet aan cum laude
+
+let output = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        output += 1;
+    }
+}
+console.log(output);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -28,6 +40,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
 
+function cumLaude(gradesArray) {
+    let output = 0;
+    for (let i = 0; i < gradesArray.length; i++) {
+        if (gradesArray[i] >= 8) {
+            output += 1;
+        }
+    }
+    return output;
+}
+
+console.log(cumLaude(grades));
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -42,6 +65,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let sum = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    sum+= grades[i];
+}
+
+average = sum / grades.length;
+
+console.log(average);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -53,12 +85,30 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade (cijferArray) {
+    let sum = 0;
+
+    for (let i = 0; i < cijferArray.length; i++) {
+        sum+= cijferArray[i];
+    }
+
+   return average = sum / cijferArray.length;
+}
+
+console.log(averageGrade(grades));
+
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
 
+function rounder2Decimals(xy){
+    return Number.parseFloat(xy).toFixed(2)
+}
+
+
+console.log(rounder2Decimals(averageGrade(grades)))
 
 
 /* Bonusopdracht: hoogste cijfer */
@@ -72,6 +122,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+//grades array met een for loop langslopen
+// hoogte getal
+// output variabel declareren met += 1
+
+// let output = 0;
+//
+// for (let i = 0; i < grades.length; i++) {
+//     if ( grades[i] )
+//
+// }
+
+console.log(Math.max(...grades));
+
+
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +146,9 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade (arrayGrades) {
+    return Math.max(...arrayGrades);
+}
+
+console.log(highestGrade([6, 4, 5]));
